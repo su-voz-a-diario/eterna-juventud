@@ -91,6 +91,24 @@
         .brand-eterna { font-size: 1.8rem; letter-spacing: -0.5px; }
         .brand-juventud { font-size: 2.4rem; position: relative; top: 4px; margin-left: -1px; letter-spacing: -1px; }
 
+        /* Icono de la mujer aislado (zoom para ocultar las letras) */
+        .header-logo-img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+        .header-logo-img img {
+            width: 250%; /* Zoom profundo para dejar solo a la mujer */
+            height: 250%;
+            object-fit: cover;
+            object-position: center 30%; /* Ajuste fino hacia arriba */
+        }
+
         /* Header */
         header {
             position: fixed;
@@ -149,12 +167,37 @@
             position: relative;
             overflow: hidden;
         }
-        .hero-content { z-index: 2; max-width: 800px; }
+        .hero-content { z-index: 2; max-width: 800px; display: flex; flex-direction: column; align-items: center; }
         
+        .hero-logo-large-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-logo-img-wrapper {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            box-shadow: 0 5px 15px rgba(178,58,112,0.15);
+            background-color: white;
+        }
+        .hero-logo-img-wrapper img {
+            width: 250%; /* Zoom para aislar a la mujer */
+            height: 250%;
+            object-fit: cover;
+            object-position: center 30%;
+        }
+
         .hero-logo-large {
             font-family: var(--font-serif);
             color: var(--color-secondary);
-            margin-bottom: 0.5rem;
             display: inline-block;
         }
         .hero-logo-large .brand-eterna { font-size: clamp(3.5rem, 8vw, 5rem); }
@@ -224,19 +267,21 @@
         .ingredient-list strong { color: var(--color-secondary); }
 
         .ingredient-visual { display: flex; justify-content: center; position: relative; width: 100%; }
+        
+        /* Círculo del logo sin el fondo blanco exterior */
         .image-placeholder {
             width: 100%; max-width: 380px; aspect-ratio: 1; border-radius: 50%;
-            background-color: var(--color-white); box-shadow: 0 15px 35px rgba(178,58,112,0.15);
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            border: 2px solid rgba(178,58,112,0.2); position: relative; overflow: hidden; padding: 1rem;
-            text-align: center;
+            box-shadow: 0 15px 40px rgba(178,58,112,0.25);
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; /* Calla y recorta las esquinas de la imagen */
+            position: relative;
         }
         
         .image-placeholder img {
-            max-width: 80%; height: auto; object-fit: contain; margin-bottom: 10px;
-        }
-        .image-hint {
-            font-size: 0.85rem; color: var(--color-primary); font-weight: 500;
+            width: 103%; /* Un ligero zoom para asegurar que el fondo blanco externo desaparezca */
+            height: 103%;
+            object-fit: cover;
+            object-position: center;
         }
 
         /* Testimonios */
@@ -298,8 +343,13 @@
     <header>
         <div class="container nav-container">
             <a href="#inicio" class="brand-logo">
-                <span class="brand-eterna">Eterna</span>
-                <span class="brand-juventud">Juventud</span>
+                <div class="header-logo-img">
+                    <img src="logo.png" alt="Mujer">
+                </div>
+                <div>
+                    <span class="brand-eterna">Eterna</span>
+                    <span class="brand-juventud">Juventud</span>
+                </div>
             </a>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
@@ -319,8 +369,13 @@
     <!-- Hero Section -->
     <section id="inicio" class="hero">
         <div class="container hero-content reveal">
-            <div class="hero-logo-large">
-                <span class="brand-eterna">Eterna</span><span class="brand-juventud">Juventud</span>
+            <div class="hero-logo-large-container">
+                <div class="hero-logo-img-wrapper">
+                    <img src="logo.png" alt="Mujer Eterna Juventud">
+                </div>
+                <div class="hero-logo-large">
+                    <span class="brand-eterna">Eterna</span><span class="brand-juventud">Juventud</span>
+                </div>
             </div>
             <p class="hero-subtitle">crema facial nocturna</p>
             <h2>Tradición natural que devuelve la luz a tu piel</h2>
@@ -372,9 +427,7 @@
             </div>
             <div class="ingredient-visual reveal">
                 <div class="image-placeholder">
-                    <!-- Aquí el usuario puede agregar la imagen real -->
-                    <img src="logo.png" alt="Mujer Eterna Juventud - Logotipo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="image-hint" style="display:none;">Para ver el logotipo de la mujer aquí, guarda tu imagen como "logo.png" en la misma carpeta que este archivo index.html</span>
+                    <img src="logo.png" alt="Logotipo Eterna Juventud">
                 </div>
             </div>
         </div>
