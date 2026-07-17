@@ -91,22 +91,20 @@
         .brand-eterna { font-size: 1.8rem; letter-spacing: -0.5px; }
         .brand-juventud { font-size: 2.4rem; position: relative; top: 4px; margin-left: -1px; letter-spacing: -1px; }
 
-        /* Icono de la mujer aislado (zoom para ocultar las letras) */
+        /* Icono de la mujer (Menú) */
         .header-logo-img {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            overflow: hidden;
+            width: 45px;
+            height: 45px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             margin-right: 10px;
         }
         .header-logo-img img {
-            width: 250%; /* Zoom profundo para dejar solo a la mujer */
-            height: 250%;
-            object-fit: cover;
-            object-position: center 30%; /* Ajuste fino hacia arriba */
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply; /* Elimina el fondo blanco de la imagen */
         }
 
         /* Header */
@@ -171,28 +169,25 @@
         
         .hero-logo-large-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             margin-bottom: 0.5rem;
         }
         
         .hero-logo-img-wrapper {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            overflow: hidden;
+            width: 170px;
+            height: auto;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
-            box-shadow: 0 5px 15px rgba(178,58,112,0.15);
-            background-color: white;
+            margin-bottom: 5px;
         }
         .hero-logo-img-wrapper img {
-            width: 250%; /* Zoom para aislar a la mujer */
-            height: 250%;
-            object-fit: cover;
-            object-position: center 30%;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            mix-blend-mode: multiply; /* Elimina el fondo blanco */
         }
 
         .hero-logo-large {
@@ -344,7 +339,7 @@
         <div class="container nav-container">
             <a href="#inicio" class="brand-logo">
                 <div class="header-logo-img">
-                    <img src="logo.png" alt="Mujer">
+                    <img src="logo-mujer.png" alt="Mujer">
                 </div>
                 <div>
                     <span class="brand-eterna">Eterna</span>
@@ -371,7 +366,7 @@
         <div class="container hero-content reveal">
             <div class="hero-logo-large-container">
                 <div class="hero-logo-img-wrapper">
-                    <img src="logo.png" alt="Mujer Eterna Juventud">
+                    <img src="logo-mujer.png" alt="Mujer Eterna Juventud">
                 </div>
                 <div class="hero-logo-large">
                     <span class="brand-eterna">Eterna</span><span class="brand-juventud">Juventud</span>
