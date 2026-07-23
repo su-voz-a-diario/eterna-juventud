@@ -1,0 +1,10 @@
+.DS_Store
+**/.DS_Store
+
+# Banco fotográfico original; el sitio usa únicamente assets optimizados.
+fotos para pagina web eterna juventud/
+
+# Imágenes generadas/source que no se usan en la landing.
+Gemini_Generated_Image_*.png
+assets/images/modo-uso.webp
+assets/images/producto-ambiente.webp

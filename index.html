@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eterna Juventud es una crema facial nocturna de origen natural para un ritual de cuidado sereno, nutritivo y luminoso.">
+    <meta name="theme-color" content="#fefcfd">
+    <meta property="og:title" content="Eterna Juventud - Crema Facial Nocturna">
+    <meta property="og:description" content="Cuidado nocturno natural para una piel suave, nutrida y luminosa.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/producto-profesional.webp">
     <title>Eterna Juventud - Crema Facial Nocturna</title>
+    <link rel="icon" href="assets/images/logo-icon.webp" type="image/webp">
+    <link rel="preload" as="image" href="assets/images/producto-profesional.webp">
+    <script>document.documentElement.classList.add('js');</script>
     <style>
-        /* Variables de color y diseño premium extraídas del logotipo */
         :root {
-            --color-primary: #b23a70; /* Magenta/Rosa oscuro del dibujo */
-            --color-secondary: #35203b; /* Ciruela oscuro del texto */
-            --color-bg: #fefcfd; /* Blanco con un levísimo toque rosa */
+            --color-primary: #b23a70;
+            --color-secondary: #35203b;
+            --color-bg: #fefcfd;
             --color-text: #35203b;
             --color-text-light: #705574;
             --color-white: #ffffff;
@@ -17,6 +25,8 @@
             --font-serif: 'Playfair Display', 'Didot', 'Bodoni MT', 'Times New Roman', serif;
             --font-main: system-ui, -apple-system, sans-serif;
             --transition: all 0.3s ease;
+            --shadow-soft: 0 24px 60px rgba(53, 32, 59, 0.10);
+            --border-soft: 1px solid rgba(53, 32, 59, 0.10);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,6 +40,7 @@
         }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
+        img { display: block; max-width: 100%; }
 
         .container {
             width: 100%;
@@ -39,48 +50,91 @@
         }
 
         .section-title {
-            text-align: center;
-            font-size: 2.5rem;
+            font-size: clamp(2.1rem, 5vw, 4.2rem);
+            line-height: 0.95;
             color: var(--color-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 1.4rem;
             font-family: var(--font-serif);
             font-weight: normal;
         }
 
-        section { padding: 5rem 0; }
+        .section-kicker {
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
+        .section-copy {
+            color: var(--color-text-light);
+            font-size: clamp(1rem, 1.7vw, 1.12rem);
+            line-height: 1.85;
+            max-width: 620px;
+        }
+
+        section {
+            padding: clamp(4.5rem, 8vw, 8rem) 0;
+            scroll-margin-top: 88px;
+        }
 
         .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            opacity: 1;
+            transform: none;
         }
-        .reveal.visible {
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .js .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background-color: var(--color-primary);
             color: var(--color-white);
-            padding: 14px 35px;
+            padding: 14px 32px;
             border-radius: 30px;
             font-weight: 500;
-            border: none;
+            border: 1px solid var(--color-primary);
             cursor: pointer;
             transition: var(--transition);
-            font-size: 1.1rem;
+            font-size: 0.98rem;
             text-align: center;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(178, 58, 112, 0.2);
+            box-shadow: 0 12px 28px rgba(178, 58, 112, 0.18);
         }
         .btn:hover {
             background-color: #9a2e5d;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(178, 58, 112, 0.3);
+            box-shadow: 0 16px 36px rgba(178, 58, 112, 0.25);
+        }
+        .btn:focus-visible,
+        .nav-links a:focus-visible,
+        .hamburger:focus-visible,
+        .form-control:focus-visible {
+            outline: 3px solid rgba(178, 58, 112, 0.32);
+            outline-offset: 4px;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-secondary);
+            box-shadow: none;
+            border-color: rgba(53, 32, 59, 0.22);
+        }
+        .btn-secondary:hover {
+            color: var(--color-primary);
+            background-color: rgba(255,255,255,0.55);
+            border-color: rgba(178, 58, 112, 0.42);
+            box-shadow: none;
         }
 
-        /* Tipografía del Logo */
         .brand-logo {
             font-family: var(--font-serif);
             color: var(--color-secondary);
@@ -91,7 +145,6 @@
         .brand-eterna { font-size: 1.8rem; letter-spacing: -0.5px; }
         .brand-juventud { font-size: 2.4rem; position: relative; top: 4px; margin-left: -1px; letter-spacing: -1px; }
 
-        /* Icono de la mujer (Menú) */
         .header-logo-img {
             width: 45px;
             height: 45px;
@@ -106,394 +159,882 @@
             object-fit: contain;
         }
 
-        /* Header */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(254, 252, 253, 0.95);
-            backdrop-filter: blur(8px);
+            background-color: rgba(254, 252, 253, 0.93);
+            backdrop-filter: blur(12px);
             z-index: 1000;
-            box-shadow: 0 1px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 1px 14px rgba(53,32,59,0.04);
             padding: 10px 0;
         }
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 1.5rem;
         }
         .nav-links { display: flex; gap: 25px; }
         .nav-links li a {
             font-weight: 400;
             color: var(--color-text-light);
             transition: var(--transition);
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         .nav-links li a:hover { color: var(--color-primary); }
 
-        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: transparent;
+            border: 0;
+            padding: 8px;
+        }
         .hamburger span { width: 25px; height: 2px; background-color: var(--color-secondary); transition: var(--transition); }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                position: absolute; top: 100%; left: 0; width: 100%;
-                background-color: var(--color-white);
-                flex-direction: column; align-items: center; padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-                clip-path: circle(0% at 100% 0); transition: all 0.4s ease-in-out;
-            }
-            .nav-links.active { clip-path: circle(150% at 100% 0); }
-            .hamburger { display: flex; }
-            .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-            .hamburger.active span:nth-child(2) { opacity: 0; }
-            .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-        }
-
-        /* Hero */
         .hero {
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 80px;
+            display: grid;
+            align-items: stretch;
+            padding: 0;
             background: linear-gradient(135deg, #fefcfd 0%, #faeef3 100%);
             position: relative;
             overflow: hidden;
         }
-        .hero-content { z-index: 2; max-width: 800px; display: flex; flex-direction: column; align-items: center; }
-        
-        .hero-logo-large-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 0.5rem;
-        }
-        
-        .hero-logo-img-wrapper {
-            width: 350px;
-            max-width: 90%;
-            height: auto;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: -20px;
-        }
-        .hero-logo-img-wrapper img {
+        .hero-grid {
             width: 100%;
-            height: auto;
-            object-fit: contain;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+            align-items: center;
+            gap: clamp(2rem, 6vw, 7rem);
+            padding-top: 82px;
         }
-
+        .hero-content {
+            z-index: 2;
+            padding: 3rem 0 3rem max(20px, calc((100vw - 1200px) / 2 + 20px));
+        }
         .hero-logo-large {
             font-family: var(--font-serif);
             color: var(--color-secondary);
-            display: inline-block;
+            display: none;
+            margin-bottom: 1.8rem;
         }
-        .hero-logo-large .brand-eterna { font-size: clamp(3.5rem, 8vw, 5rem); }
-        .hero-logo-large .brand-juventud { font-size: clamp(4rem, 9vw, 6rem); top: 10px; margin-left: -5px; }
-        
+        .hero-logo-large .brand-eterna { font-size: clamp(1.8rem, 3vw, 2.45rem); }
+        .hero-logo-large .brand-juventud { font-size: clamp(2.2rem, 3.6vw, 3rem); top: 4px; margin-left: -2px; }
         .hero-subtitle {
-            font-family: var(--font-main);
             color: var(--color-primary);
             text-transform: uppercase;
             letter-spacing: 3px;
-            font-size: clamp(0.9rem, 2vw, 1.2rem);
-            margin-bottom: 2.5rem;
-            font-weight: 500;
+            font-size: clamp(0.82rem, 1.6vw, 1rem);
+            margin-bottom: 2rem;
+            font-weight: 600;
         }
-
-        .hero h2 {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            font-weight: 300;
-            margin-bottom: 2.5rem;
+        .hero h1 {
+            font-size: clamp(2.2rem, 4.6vw, 4.8rem);
+            line-height: 0.95;
+            font-family: var(--font-serif);
+            font-weight: normal;
+            color: var(--color-secondary);
+            max-width: 680px;
+            margin-bottom: 1.8rem;
+        }
+        .hero-copy {
             color: var(--color-text-light);
-            font-style: italic;
+            font-size: clamp(1rem, 1.7vw, 1.22rem);
+            line-height: 1.85;
+            max-width: 520px;
+            margin-bottom: 2.3rem;
         }
-        .hero::before {
+        .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+        .hero-media {
+            height: 100vh;
+            min-height: 640px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: -28px 0 80px rgba(53, 32, 59, 0.08);
+            background: #faeef3;
+        }
+        .hero-media::after {
             content: '';
             position: absolute;
-            width: 60vw; height: 60vw; max-width: 600px; max-height: 600px;
-            background: radial-gradient(circle, rgba(178,58,112,0.05) 0%, rgba(254,252,253,0) 70%);
-            border-radius: 50%; top: 10%; right: -10%; z-index: 1;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(254,252,253,0.28), rgba(254,252,253,0) 34%);
+            pointer-events: none;
+        }
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 54%;
         }
 
-        /* Beneficios */
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            align-items: center;
+            gap: clamp(2.5rem, 7vw, 6.5rem);
+        }
+        .editorial-grid.reverse .editorial-media { order: 2; }
+        .editorial-grid.reverse .editorial-text { order: 1; }
+        .editorial-media {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: var(--shadow-soft);
+            background-color: #faeef3;
+        }
+        .editorial-media.tall { aspect-ratio: 4 / 5; }
+        .editorial-media.square { aspect-ratio: 1; }
+        .editorial-media.wide { aspect-ratio: 16 / 10; }
+        .editorial-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .pos-product { object-position: 50% 60%; }
+        .pos-ritual { object-position: 48% 42%; }
+        .pos-texture { object-position: 46% 34%; }
+        .pos-flatlay { object-position: 50% 48%; }
+        .pos-use { object-position: 52% 35%; }
+        .pos-hands { object-position: 50% 48%; }
+        .pos-model-product { object-position: 48% 34%; }
+
+        .product-notes {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 2.2rem;
+        }
+        .note {
+            border-top: var(--border-soft);
+            padding-top: 1rem;
+        }
+        .note strong {
+            display: block;
+            color: var(--color-secondary);
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin-bottom: 0.35rem;
+        }
+        .note span {
+            display: block;
+            color: var(--color-text-light);
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+        .ritual {
+            background-color: var(--color-white);
+        }
+        .ritual-steps {
+            display: grid;
+            gap: 1.1rem;
+            margin-top: 2.4rem;
+        }
+        .ritual-step {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1rem;
+            padding: 1.2rem 0;
+            border-top: var(--border-soft);
+        }
+        .ritual-step:last-child { border-bottom: var(--border-soft); }
+        .step-number {
+            font-family: var(--font-serif);
+            color: var(--color-primary);
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+        .ritual-step h3 {
+            font-family: var(--font-serif);
+            font-size: 1.45rem;
+            font-weight: normal;
+            color: var(--color-secondary);
+            margin-bottom: 0.25rem;
+        }
+        .ritual-step p {
+            color: var(--color-text-light);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+
+        .benefits {
+            background-color: var(--color-bg);
+        }
+        .benefits-header {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: clamp(2rem, 6vw, 5rem);
+            align-items: end;
+            margin-bottom: clamp(2.4rem, 5vw, 4rem);
+        }
         .benefits-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1px;
+            background-color: rgba(53, 32, 59, 0.10);
+            border: var(--border-soft);
         }
         .benefit-card {
-            background-color: var(--color-card-bg); padding: 2.5rem 2rem; border-radius: 10px;
-            text-align: center; box-shadow: 0 4px 20px rgba(53,32,59,0.04);
-            transition: var(--transition); border-top: 3px solid transparent;
+            background-color: rgba(255,255,255,0.78);
+            padding: clamp(1.7rem, 3vw, 2.4rem);
+            transition: var(--transition);
         }
         .benefit-card:hover {
-            transform: translateY(-10px); box-shadow: 0 10px 30px rgba(53,32,59,0.08);
-            border-top: 3px solid var(--color-primary);
+            background-color: var(--color-white);
         }
-        .icon-premium {
-            width: 60px; height: 60px; margin: 0 auto 1.5rem;
-            border-radius: 50%; background-color: #faeef3; color: var(--color-primary);
-            display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
+        .benefit-card h3 {
+            color: var(--color-secondary);
+            margin-bottom: 1rem;
+            font-size: 1.35rem;
+            font-family: var(--font-serif);
+            font-weight: normal;
         }
-        .benefit-card h3 { color: var(--color-secondary); margin-bottom: 1rem; font-size: 1.2rem; font-family: var(--font-serif); }
-        .benefit-card p { color: var(--color-text-light); font-size: 0.95rem; }
+        .benefit-card p {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            line-height: 1.75;
+        }
 
-        /* Fórmula / Ingredientes */
-        .ingredient { background-color: #faeef3; }
-        .ingredient-content { display: flex; flex-direction: column; align-items: center; gap: 4rem; }
-        @media (min-width: 768px) {
-            .ingredient-content { flex-direction: row; justify-content: space-between; align-items: center; }
-            .ingredient-text, .ingredient-visual { flex: 1; }
+        .formula {
+            background-color: #faeef3;
         }
-        .ingredient-text p { margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--color-text); }
-        .ingredient-list { margin-top: 1.5rem; }
+        .ingredient-list { margin-top: 1.9rem; }
         .ingredient-list li {
-            margin-bottom: 1rem; padding-left: 30px; position: relative; color: var(--color-text-light);
+            margin-bottom: 1rem;
+            padding-left: 30px;
+            position: relative;
+            color: var(--color-text-light);
+            line-height: 1.75;
         }
         .ingredient-list li::before {
-            content: '✓'; position: absolute; left: 0; top: 0; color: var(--color-primary); font-weight: bold;
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.72rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
         }
         .ingredient-list strong { color: var(--color-secondary); }
 
-        .ingredient-visual { display: flex; justify-content: center; position: relative; width: 100%; }
-        
-        /* Círculo del logo sin el fondo blanco exterior */
-        .image-placeholder {
-            width: 100%; max-width: 380px; aspect-ratio: 1; border-radius: 50%;
-            box-shadow: 0 15px 40px rgba(178,58,112,0.25);
-            display: flex; align-items: center; justify-content: center;
-            overflow: hidden; /* Calla y recorta las esquinas de la imagen */
-            position: relative;
+        .texture-band {
+            padding: 0;
+            background-color: var(--color-white);
         }
-        
-        .image-placeholder img {
-            width: 103%; /* Un ligero zoom para asegurar que el fondo blanco externo desaparezca */
-            height: 103%;
+        .texture-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            min-height: 620px;
+        }
+        .texture-image {
+            min-height: 620px;
+            overflow: hidden;
+        }
+        .texture-image img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            object-position: center;
+            object-position: 43% 35%;
+        }
+        .texture-copy {
+            display: flex;
+            align-items: center;
+            padding: clamp(3rem, 7vw, 6rem);
+            background-color: var(--color-white);
         }
 
-        /* Testimonios */
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .expectations {
+            background-color: var(--color-bg);
+        }
+        .expectations-panel {
+            border: var(--border-soft);
+            background: rgba(255,255,255,0.7);
+            padding: clamp(2rem, 5vw, 4rem);
+            display: grid;
+            grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+            gap: clamp(2rem, 5vw, 4rem);
+            align-items: center;
+        }
+        .expectations-list {
+            display: grid;
+            gap: 1.1rem;
+        }
+        .expectation {
+            border-top: var(--border-soft);
+            padding-top: 1rem;
+            color: var(--color-text-light);
+            line-height: 1.75;
+        }
+        .expectation strong {
+            color: var(--color-secondary);
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: normal;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonials {
+            background-color: var(--color-white);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
         .testimonial-card {
-            background-color: var(--color-card-bg); padding: 3rem 2rem; border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(53,32,59,0.04); text-align: center;
+            background-color: var(--color-card-bg);
+            padding: clamp(2rem, 4vw, 3rem) 2rem;
+            border: var(--border-soft);
+            text-align: left;
         }
-        .photo-placeholder {
-            width: 70px; height: 70px; border-radius: 50%; background-color: #faeef3; margin: 0 auto 1.5rem;
-            display: flex; align-items: center; justify-content: center; color: var(--color-primary);
-            font-size: 1.5rem; font-family: var(--font-serif);
+        .testimonial-text {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            line-height: 1.55;
+            margin-bottom: 1.5rem;
+            color: var(--color-secondary);
         }
-        .testimonial-text { font-style: italic; margin-bottom: 1.5rem; color: var(--color-text-light); line-height: 1.8; }
-        .testimonial-name { font-weight: 600; color: var(--color-secondary); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            letter-spacing: 1.5px;
+        }
 
-        /* Contacto */
-        .contact { background-color: var(--color-white); }
-        .contact-container { max-width: 600px; margin: 0 auto; text-align: center; }
-        .form-group { margin-bottom: 1.5rem; text-align: left; }
+        .contact {
+            background-color: #faeef3;
+        }
+        .contact-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: clamp(2.5rem, 7vw, 6rem);
+            align-items: center;
+        }
+        .contact-card {
+            background-color: rgba(255,255,255,0.82);
+            border: var(--border-soft);
+            padding: clamp(2rem, 5vw, 3.6rem);
+            box-shadow: var(--shadow-soft);
+        }
+        .contact-container { max-width: 620px; }
+        .form-group { margin-bottom: 1.35rem; text-align: left; }
         .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--color-secondary); font-size: 0.95rem; }
         .form-control {
-            width: 100%; padding: 15px; border: 1px solid #e0d5e1; border-radius: 5px;
-            font-family: inherit; font-size: 1rem; transition: var(--transition); background-color: #fefcfd;
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e0d5e1;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: #fefcfd;
+            color: var(--color-text);
         }
-        .form-control:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(178,58,112,0.1); }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(178,58,112,0.1);
+        }
         textarea.form-control { resize: vertical; min-height: 120px; }
         .form-message { margin-top: 1rem; padding: 15px; border-radius: 5px; display: none; font-weight: 500; }
         .form-message.success { display: block; background-color: #faeef3; color: var(--color-primary); }
 
         .whatsapp-container {
-            margin-top: 4rem; display: flex; align-items: center; justify-content: center; gap: 15px;
-            color: var(--color-secondary); font-weight: 500; font-size: 1.1rem;
+            margin-top: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: var(--color-secondary);
+            font-weight: 500;
+            font-size: 1rem;
+            border: var(--border-soft);
+            padding: 14px 18px;
+            border-radius: 999px;
+            background-color: rgba(255,255,255,0.68);
         }
         .wa-icon {
-            width: 50px; height: 50px; background-color: #25D366; color: white; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
-            box-shadow: 0 4px 10px rgba(37,211,102,0.3);
+            width: 34px;
+            height: 34px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(37,211,102,0.18);
+            flex: 0 0 auto;
         }
 
-        /* Footer */
-        footer { background-color: var(--color-secondary); color: var(--color-white); text-align: center; padding: 4rem 0 3rem; }
+        footer {
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+            text-align: center;
+            padding: 4rem 0 3rem;
+        }
         .footer-logo { margin-bottom: 1.5rem; display: inline-block; }
         .footer-logo .brand-eterna { font-size: 1.5rem; color: #fff; }
         .footer-logo .brand-juventud { font-size: 1.8rem; color: #fff; }
         footer p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 2rem; }
         .social-icons { display: flex; justify-content: center; gap: 15px; }
         .social-icon {
-            width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2);
-            display: flex; align-items: center; justify-content: center; transition: var(--transition);
-            cursor: pointer; font-size: 0.9rem; color: rgba(255,255,255,0.8);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
         }
         .social-icon:hover { background-color: var(--color-primary); border-color: var(--color-primary); color: #fff; transform: translateY(-3px); }
+
+        @media (max-width: 980px) {
+            .hero-grid,
+            .editorial-grid,
+            .benefits-header,
+            .texture-grid,
+            .expectations-panel,
+            .contact-panel {
+                grid-template-columns: 1fr;
+            }
+            .hero-grid {
+                min-height: auto;
+                gap: 0;
+                padding-top: 78px;
+            }
+            .hero-content {
+                padding: 3.5rem 20px 3rem;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-media {
+                height: auto;
+                min-height: 58vh;
+                width: calc(100% - 40px);
+                margin: 0 auto 2rem;
+                border-radius: 8px;
+            }
+            .hero-media img {
+                min-height: 58vh;
+                object-position: 50% 55%;
+            }
+            .editorial-grid.reverse .editorial-media,
+            .editorial-grid.reverse .editorial-text {
+                order: initial;
+            }
+            .product-notes,
+            .benefits-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .texture-image {
+                min-height: 520px;
+            }
+            .texture-copy {
+                padding: clamp(3rem, 7vw, 5rem) 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .brand-eterna { font-size: 1.35rem; }
+            .brand-juventud { font-size: 1.72rem; top: 3px; }
+            .header-logo-img { width: 38px; height: 38px; }
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--color-white);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+                clip-path: circle(0% at 100% 0);
+                transition: all 0.4s ease-in-out;
+            }
+            .nav-links.active { clip-path: circle(150% at 100% 0); }
+            .hamburger { display: flex; }
+            .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+            section { padding: 4rem 0; }
+            .section-title { line-height: 1.02; }
+            .hero h1 { font-size: clamp(2.4rem, 13vw, 4rem); }
+            .hero-actions { justify-content: center; }
+            .hero-media {
+                min-height: 52vh;
+                width: calc(100% - 28px);
+            }
+            .hero-media img {
+                min-height: 52vh;
+                object-position: 50% 56%;
+            }
+            .editorial-media.tall,
+            .editorial-media.square,
+            .editorial-media.wide {
+                aspect-ratio: 4 / 5;
+            }
+            .texture-image {
+                min-height: 430px;
+            }
+            .pos-product { object-position: 50% 58%; }
+            .pos-ritual { object-position: 50% 35%; }
+            .pos-texture { object-position: 46% 30%; }
+            .pos-use { object-position: 52% 28%; }
+            .pos-hands { object-position: 50% 45%; }
+            .contact-card { padding: 2rem 1.2rem; }
+            .whatsapp-container {
+                align-items: flex-start;
+                border-radius: 18px;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .container { padding: 0 18px; }
+            .hero-logo-large .brand-eterna { font-size: 1.8rem; }
+            .hero-logo-large .brand-juventud { font-size: 2.15rem; }
+            .hero-content { padding-left: 18px; padding-right: 18px; }
+            .hero-media {
+                width: calc(100% - 24px);
+                min-height: 48vh;
+            }
+            .hero-media img {
+                min-height: 48vh;
+                object-position: 50% 57%;
+            }
+            .btn { width: 100%; }
+        }
+
+        @media (max-width: 360px) {
+            .brand-eterna { font-size: 1.12rem; }
+            .brand-juventud { font-size: 1.42rem; top: 2px; }
+            .header-logo-img {
+                width: 32px;
+                height: 32px;
+                margin-right: 7px;
+            }
+            .nav-container { gap: 0.75rem; }
+            .hamburger { padding: 6px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <!-- Header -->
     <header>
         <div class="container nav-container">
-            <a href="#inicio" class="brand-logo">
+            <a href="#inicio" class="brand-logo" aria-label="Eterna Juventud, ir al inicio">
                 <div class="header-logo-img">
-                    <img src="imagen%20sin%20fondo.png" alt="Mujer Eterna Juventud">
+                    <img src="assets/images/logo-icon.webp" alt="" width="45" height="45">
                 </div>
                 <div>
                     <span class="brand-eterna">Eterna</span>
                     <span class="brand-juventud">Juventud</span>
                 </div>
             </a>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#beneficios">Beneficios</a></li>
-                <li><a href="#formula">Fórmula</a></li>
-                <li><a href="#testimonios">Testimonios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-            <div class="hamburger">
+            <nav aria-label="Navegación principal">
+                <ul class="nav-links" id="primaryNav">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#producto">Producto</a></li>
+                    <li><a href="#ritual">Ritual</a></li>
+                    <li><a href="#formula">Fórmula</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" type="button" aria-label="Abrir menú" aria-controls="primaryNav" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="container hero-content reveal">
-            <div class="hero-logo-large-container">
-                <div class="hero-logo-img-wrapper">
-                    <img src="imagen%20sin%20fondo.png" alt="Mujer Eterna Juventud">
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-grid">
+                <div class="hero-content reveal visible">
+                    <div class="hero-logo-large" aria-label="Eterna Juventud">
+                        <span class="brand-eterna">Eterna</span><span class="brand-juventud">Juventud</span>
+                    </div>
+                    <p class="hero-subtitle">crema facial nocturna</p>
+                    <h1>Cuidar la luz de tu piel</h1>
+                    <p class="hero-copy">Crema facial nocturna de origen natural para convertir el descanso en un ritual de nutrición, suavidad y calma.</p>
+                    <div class="hero-actions">
+                        <a href="#contacto" class="btn">Comprar ahora</a>
+                        <a href="#ritual" class="btn btn-secondary">Descubrir el ritual</a>
+                    </div>
                 </div>
-                <div class="hero-logo-large">
-                    <span class="brand-eterna">Eterna</span><span class="brand-juventud">Juventud</span>
-                </div>
-            </div>
-            <p class="hero-subtitle">crema facial nocturna</p>
-            <h2>Tradición natural que devuelve la luz a tu piel</h2>
-            <a href="#contacto" class="btn">Comprar ahora</a>
-        </div>
-    </section>
-
-    <!-- Beneficios Section -->
-    <section id="beneficios" class="container">
-        <h2 class="section-title reveal">¿Por qué elegirnos?</h2>
-        <div class="benefits-grid">
-            <div class="benefit-card reveal">
-                <div class="icon-premium">✨</div>
-                <h3>Elimina manchas</h3>
-                <p>Actúa de forma progresiva sobre las manchas oscuras, devolviendo la uniformidad a tu rostro.</p>
-            </div>
-            <div class="benefit-card reveal">
-                <div class="icon-premium">🌱</div>
-                <h3>Rejuvenece tu piel</h3>
-                <p>Restaura la elasticidad y unifica el tono de la piel, proporcionando un brillo juvenil natural.</p>
-            </div>
-            <div class="benefit-card reveal">
-                <div class="icon-premium">🌿</div>
-                <h3>100% Natural</h3>
-                <p>Libre de parabenos, conservantes y fragancias artificiales. Cuidado puro para tu piel.</p>
-            </div>
-            <div class="benefit-card reveal">
-                <div class="icon-premium">🏺</div>
-                <h3>Tradición ancestral</h3>
-                <p>Elaborada artesanalmente a base de cebo de res, un secreto de belleza guardado por generaciones.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Fórmula Magistral Section -->
-    <section id="formula" class="ingredient">
-        <div class="container ingredient-content">
-            <div class="ingredient-text reveal">
-                <h2 class="section-title" style="text-align: left;">Nuestra Fórmula Magistral</h2>
-                <p>Nuestra crema facial nocturna combina la sabiduría de la tradición con los activos más efectivos para tu piel. El <strong>cebo de res</strong>, procesado cuidadosamente de forma artesanal, es la base que aporta propiedades altamente hidratantes y regeneradoras.</p>
-                <p>Enriquecida con componentes esenciales para la vitalidad de tu rostro:</p>
-                
-                <ul class="ingredient-list">
-                    <li><strong>Colágeno:</strong> Aporta firmeza y elasticidad, combatiendo la flacidez y los signos del envejecimiento.</li>
-                    <li><strong>Ácido hialurónico:</strong> Proporciona una hidratación profunda y ayuda a rellenar las líneas de expresión.</li>
-                    <li><strong>Vitamina E:</strong> Un poderoso antioxidante que protege, calma y repara la piel durante la noche.</li>
-                    <li><strong>Aceites esenciales:</strong> Nutrición intensiva con propiedades calmantes y un aroma relajante.</li>
-                </ul>
-            </div>
-            <div class="ingredient-visual reveal">
-                <div class="image-placeholder">
-                    <img src="logo.png" alt="Logotipo Eterna Juventud">
+                <div class="hero-media reveal visible">
+                    <img src="assets/images/producto-profesional.webp" alt="Frasco de crema facial nocturna Eterna Juventud sobre pedestal de piedra cálida" width="1122" height="1402" fetchpriority="high">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Testimonios Section -->
-    <section id="testimonios" class="container">
-        <h2 class="section-title reveal">Lo que dicen quienes ya la usan</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card reveal">
-                <div class="photo-placeholder">C</div>
-                <p class="testimonial-text">"Tenía unas manchas del sol que no se iban con nada. Desde que uso Eterna Juventud, mi piel está mucho más clara y luminosa. Me sorprendió lo rápido que vi resultados."</p>
-                <p class="testimonial-name">Carmen R.</p>
-            </div>
-            <div class="testimonial-card reveal">
-                <div class="photo-placeholder">L</div>
-                <p class="testimonial-text">"Al principio dudaba por el ingrediente, pero la textura es increíble y mi rostro se siente firme e hidratado todo el día. Ya no cambio mi crema artesanal por ninguna otra."</p>
-                <p class="testimonial-name">Lucía M.</p>
-            </div>
-            <div class="testimonial-card reveal">
-                <div class="photo-placeholder">M</div>
-                <p class="testimonial-text">"Es un milagro en un frasco. Siento mi piel rejuvenecida y lo mejor es que sé que estoy usando un producto 100% natural, sin tóxicos."</p>
-                <p class="testimonial-name">María T.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacto Section -->
-    <section id="contacto" class="contact">
-        <div class="container contact-container reveal">
-            <h2 class="section-title">Consigue tu Eterna Juventud</h2>
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="name">Nombre completo</label>
-                    <input type="text" id="name" class="form-control" required placeholder="Tu nombre">
+        <section id="producto" class="product">
+            <div class="container editorial-grid">
+                <div class="editorial-media tall reveal">
+                    <img class="pos-flatlay" src="assets/images/flatlay-producto.webp" alt="Frasco abierto de Eterna Juventud con tapa, espátula y muestra de crema sobre superficie de piedra" width="1086" height="1448" loading="lazy">
                 </div>
-                <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" class="form-control" required placeholder="tu@correo.com">
+                <div class="editorial-text reveal">
+                    <p class="section-kicker">Producto</p>
+                    <h2 class="section-title">Una crema nocturna para volver a la calma.</h2>
+                    <p class="section-copy">Eterna Juventud acompaña la rutina de noche con una textura rica, envolvente y nutritiva. Su experiencia está pensada para dejar la piel con una sensación más suave, confortable y luminosa al despertar.</p>
+                    <div class="product-notes" aria-label="Atributos principales del producto">
+                        <div class="note">
+                            <strong>Nocturna</strong>
+                            <span>Diseñada para usarse al final del día, sobre el rostro limpio.</span>
+                        </div>
+                        <div class="note">
+                            <strong>Nutritiva</strong>
+                            <span>Textura generosa para piel que busca confort y suavidad.</span>
+                        </div>
+                        <div class="note">
+                            <strong>Natural</strong>
+                            <span>Una propuesta inspirada en tradición y cuidado artesanal.</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="message">¿Cuántas unidades deseas o qué duda tienes?</label>
-                    <textarea id="message" class="form-control" required placeholder="Escribe tu mensaje aquí..."></textarea>
-                </div>
-                <button type="submit" class="btn" style="width: 100%;">Enviar mensaje</button>
-                <div id="formMessage" class="form-message">Gracias por tu mensaje. Te contactaremos pronto.</div>
-            </form>
-
-            <div class="whatsapp-container reveal">
-                <div class="wa-icon">W</div>
-                <span>Escríbenos por WhatsApp</span>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+        <section id="ritual" class="ritual">
+            <div class="container editorial-grid reverse">
+                <div class="editorial-media tall reveal">
+                    <img class="pos-ritual" src="assets/images/ritual-nocturno.webp" alt="Mujer frente al tocador aplicando crema Eterna Juventud durante su rutina nocturna" width="1086" height="1448" loading="lazy">
+                </div>
+                <div class="editorial-text reveal">
+                    <p class="section-kicker">Ritual nocturno</p>
+                    <h2 class="section-title">Cada noche, un gesto de cuidado.</h2>
+                    <p class="section-copy">La belleza también necesita pausa. Un momento sencillo antes del descanso puede convertirse en una forma de reconectar con tu piel y cuidarla con constancia.</p>
+                    <div class="ritual-steps">
+                        <div class="ritual-step">
+                            <span class="step-number">01</span>
+                            <div>
+                                <h3>Limpia</h3>
+                                <p>Prepara el rostro para recibir la crema con suavidad.</p>
+                            </div>
+                        </div>
+                        <div class="ritual-step">
+                            <span class="step-number">02</span>
+                            <div>
+                                <h3>Aplica</h3>
+                                <p>Distribuye una pequeña cantidad con movimientos delicados.</p>
+                            </div>
+                        </div>
+                        <div class="ritual-step">
+                            <span class="step-number">03</span>
+                            <div>
+                                <h3>Descansa</h3>
+                                <p>Permite que la textura acompañe tu piel durante la noche.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="beneficios" class="benefits">
+            <div class="container">
+                <div class="benefits-header">
+                    <div class="reveal">
+                        <p class="section-kicker">Beneficios</p>
+                        <h2 class="section-title">Cuidado visible, lenguaje honesto.</h2>
+                    </div>
+                    <p class="section-copy reveal">Una fórmula nocturna debe sentirse bien en la piel y también generar confianza. Por eso hablamos de beneficios cosméticos realistas, pensados para el cuidado cotidiano.</p>
+                </div>
+                <div class="editorial-media wide reveal">
+                    <img class="pos-use" src="assets/images/paleta-textura.webp" alt="Detalle de crema Eterna Juventud sobre una espátula en luz cálida" width="1500" height="2001" loading="lazy">
+                </div>
+                <div class="benefits-grid reveal">
+                    <div class="benefit-card">
+                        <h3>Apariencia luminosa</h3>
+                        <p>Ayuda a que la piel luzca más descansada y con una sensación de mayor vitalidad.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Textura nutritiva</h3>
+                        <p>Aporta confort durante la noche con una aplicación rica y envolvente.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Suavidad diaria</h3>
+                        <p>Con el uso constante, acompaña una piel con tacto más suave y cuidado.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Tradición cuidada</h3>
+                        <p>Una propuesta de origen natural presentada con dedicación, claridad y elegancia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="formula" class="formula">
+            <div class="container editorial-grid">
+                <div class="editorial-text reveal">
+                    <p class="section-kicker">Fórmula</p>
+                    <h2 class="section-title">Textura rica, cuidado sereno.</h2>
+                    <p class="section-copy">Nuestra crema facial nocturna combina tradición con ingredientes apreciados en el cuidado cosmético. Su textura está pensada para nutrir, suavizar y acompañar la piel durante el descanso.</p>
+                    <ul class="ingredient-list">
+                        <li><strong>Colágeno:</strong> acompaña la sensación de firmeza y elasticidad de la piel.</li>
+                        <li><strong>Ácido hialurónico:</strong> ayuda a mantener una hidratación confortable.</li>
+                        <li><strong>Vitamina E:</strong> ingrediente cosmético valorado por su aporte antioxidante.</li>
+                        <li><strong>Aceites esenciales:</strong> aportan una experiencia sensorial delicada durante la aplicación.</li>
+                    </ul>
+                </div>
+                <div class="editorial-media tall reveal">
+                    <img class="pos-texture" src="assets/images/textura-crema.webp" alt="Primer plano de la textura cremosa de Eterna Juventud dentro del frasco abierto" width="1500" height="2001" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <section class="texture-band" aria-labelledby="modo-title">
+            <div class="texture-grid">
+                <div class="texture-image reveal">
+                    <img src="assets/images/hero-aplicacion.webp" alt="Mujer aplicando crema Eterna Juventud sobre su mejilla con un gesto suave" width="1600" height="2134" loading="lazy">
+                </div>
+                <div class="texture-copy reveal">
+                    <div>
+                        <p class="section-kicker">Modo de uso</p>
+                        <h2 id="modo-title" class="section-title">Una aplicación lenta, simple y constante.</h2>
+                        <p class="section-copy">Aplica por la noche sobre el rostro limpio. Usa una pequeña cantidad y extiéndela con movimientos suaves, evitando el contacto directo con los ojos. Cada piel es distinta: observa cómo responde y haz de la constancia parte del ritual.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expectations">
+            <div class="container expectations-panel reveal">
+                <div>
+                    <p class="section-kicker">Qué esperar</p>
+                    <h2 class="section-title">Cuidado sin promesas imposibles.</h2>
+                </div>
+                <div class="expectations-list">
+                    <div class="expectation">
+                        <strong>Desde la primera aplicación</strong>
+                        Una sensación de nutrición, suavidad y confort nocturno.
+                    </div>
+                    <div class="expectation">
+                        <strong>Con uso constante</strong>
+                        Una apariencia más cuidada, luminosa y descansada.
+                    </div>
+                    <div class="expectation">
+                        <strong>Siempre con honestidad</strong>
+                        No buscamos prometer cambios imposibles, sino acompañar tu piel con calma y dedicación.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonios" class="testimonials">
+            <div class="container">
+                <div class="editorial-grid">
+                    <div class="editorial-text reveal">
+                        <p class="section-kicker">Experiencias</p>
+                        <h2 class="section-title">Lo que dicen quienes ya la usan.</h2>
+                    </div>
+                    <div class="editorial-media tall reveal">
+                        <img class="pos-model-product" src="assets/images/modelo-producto.webp" alt="Mujer sosteniendo el frasco de crema Eterna Juventud junto a su rostro" width="1086" height="1448" loading="lazy">
+                    </div>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card reveal">
+                        <p class="testimonial-text">"Mi piel amanece más suave y con una sensación muy bonita de hidratación."</p>
+                        <p class="testimonial-name">Carmen R.</p>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <p class="testimonial-text">"Me gusta usarla de noche porque se siente como un ritual tranquilo antes de dormir."</p>
+                        <p class="testimonial-name">Lucía M.</p>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <p class="testimonial-text">"La textura es rica y mi rostro se siente más cuidado. Se nota que es un producto hecho con dedicación."</p>
+                        <p class="testimonial-name">María T.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact">
+            <div class="container contact-panel">
+                <div class="editorial-media tall reveal">
+                    <img class="pos-hands" src="assets/images/manos-producto.webp" alt="Manos sosteniendo el frasco abierto de crema facial nocturna Eterna Juventud" width="1500" height="2001" loading="lazy">
+                </div>
+                <div class="contact-card reveal">
+                    <div class="contact-container">
+                        <p class="section-kicker">Compra</p>
+                        <h2 class="section-title">Consigue tu Eterna Juventud</h2>
+                        <p class="section-copy">Déjanos tus datos o escríbenos para resolver tus dudas. Te acompañaremos con una atención clara y cercana.</p>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Nombre completo</label>
+                                <input type="text" id="name" class="form-control" required placeholder="Tu nombre" autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo electrónico</label>
+                                <input type="email" id="email" class="form-control" required placeholder="tu@correo.com" autocomplete="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">¿Cuántas unidades deseas o qué duda tienes?</label>
+                                <textarea id="message" class="form-control" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                            </div>
+                            <button type="submit" class="btn" style="width: 100%;">Enviar mensaje</button>
+                            <div id="formMessage" class="form-message" role="status" aria-live="polite">Gracias por tu mensaje. Te contactaremos pronto.</div>
+                        </form>
+
+                        <div class="whatsapp-container">
+                            <div class="wa-icon" aria-hidden="true">W</div>
+                            <span>También puedes escribirnos por WhatsApp para recibir atención personalizada.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
         <div class="container reveal">
-            <a href="#inicio" class="brand-logo footer-logo">
+            <a href="#inicio" class="brand-logo footer-logo" aria-label="Eterna Juventud, volver al inicio">
                 <span class="brand-eterna">Eterna</span>
                 <span class="brand-juventud">Juventud</span>
             </a>
-            <p>© 2026 Eterna Juventud · Crema Facial Nocturna · Tradición que rejuvenece</p>
-            <div class="social-icons">
-                <div class="social-icon">F</div>
-                <div class="social-icon">I</div>
-                <div class="social-icon">T</div>
+            <p>&copy; 2026 Eterna Juventud · Crema Facial Nocturna · Tradición que cuida la luz</p>
+            <div class="social-icons" aria-label="Redes sociales">
+                <span class="social-icon" aria-label="Facebook">F</span>
+                <span class="social-icon" aria-label="Instagram">I</span>
+                <span class="social-icon" aria-label="TikTok">T</span>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript Vanilla -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const hamburger = document.querySelector('.hamburger');
@@ -501,14 +1042,18 @@
             const links = document.querySelectorAll('.nav-links li a');
 
             hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
+                const isOpen = hamburger.classList.toggle('active');
                 navLinks.classList.toggle('active');
+                hamburger.setAttribute('aria-expanded', String(isOpen));
+                hamburger.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
             });
 
             links.forEach(link => {
                 link.addEventListener('click', () => {
                     hamburger.classList.remove('active');
                     navLinks.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    hamburger.setAttribute('aria-label', 'Abrir menú');
                 });
             });
 
@@ -526,7 +1071,7 @@
                     btn.textContent = 'Enviar mensaje';
                     btn.disabled = false;
                     formMessage.classList.add('success');
-                    
+
                     setTimeout(() => {
                         formMessage.classList.remove('success');
                     }, 5000);
@@ -534,7 +1079,14 @@
             });
 
             const revealElements = document.querySelectorAll('.reveal');
-            const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+                revealElements.forEach(el => el.classList.add('visible'));
+                return;
+            }
+
+            const revealOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
 
             const revealOnScroll = new IntersectionObserver(function(entries, observer) {
                 entries.forEach(entry => {
