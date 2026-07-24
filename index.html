@@ -523,6 +523,19 @@
             font-size: 0.78rem;
             letter-spacing: 1.5px;
         }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 50% 32%;
+            flex: 0 0 auto;
+        }
 
         .contact {
             background-color: #faeef3;
@@ -842,7 +855,7 @@
         <section id="ritual" class="ritual">
             <div class="container editorial-grid reverse">
                 <div class="editorial-media tall reveal">
-                    <img class="pos-ritual" src="assets/images/ritual-nocturno.webp" alt="Mujer frente al tocador aplicando crema Eterna Juventud durante su rutina nocturna" width="1086" height="1448" loading="lazy">
+                    <img class="pos-ritual" src="assets/images/ritual-nocturno-nuevo.webp" alt="Mujer frente al tocador aplicando crema Eterna Juventud en su mejilla mientras sostiene el frasco del producto" width="1122" height="1402" loading="lazy">
                 </div>
                 <div class="editorial-text reveal">
                     <p class="section-kicker">Ritual nocturno</p>
@@ -868,6 +881,13 @@
                             <div>
                                 <h3>Descansa</h3>
                                 <p>Permite que la textura acompañe tu piel durante la noche.</p>
+                            </div>
+                        </div>
+                        <div class="ritual-step">
+                            <span class="step-number">04</span>
+                            <div>
+                                <h3>Al despertar, completa tu rutina</h3>
+                                <p>A la mañana siguiente, lava suavemente tu rostro con agua y continúa con tu rutina habitual de cuidado facial. Este sencillo paso ayuda a retirar los residuos del producto y prepara la piel para recibir los cuidados del nuevo día.</p>
                             </div>
                         </div>
                     </div>
@@ -1010,11 +1030,17 @@
                 <div class="testimonials-grid">
                     <div class="testimonial-card reveal">
                         <p class="testimonial-text">"Mi piel amanece más suave y con una sensación muy bonita de hidratación."</p>
-                        <p class="testimonial-name">Carmen R.</p>
+                        <div class="testimonial-author">
+                            <img class="testimonial-avatar" src="assets/images/testimonio-carmen.webp" alt="Retrato de Carmen aplicando crema facial" width="720" height="960" loading="lazy">
+                            <p class="testimonial-name">Carmen R.</p>
+                        </div>
                     </div>
                     <div class="testimonial-card reveal">
                         <p class="testimonial-text">"Me gusta usarla de noche porque se siente como un ritual tranquilo antes de dormir."</p>
-                        <p class="testimonial-name">Lucía M.</p>
+                        <div class="testimonial-author">
+                            <img class="testimonial-avatar" src="assets/images/testimonio-lucia.webp" alt="Retrato de Lucía durante su rutina de cuidado facial" width="720" height="960" loading="lazy">
+                            <p class="testimonial-name">Lucía M.</p>
+                        </div>
                     </div>
                     <div class="testimonial-card reveal">
                         <p class="testimonial-text">"La textura es rica y mi rostro se siente más cuidado. Se nota que es un producto hecho con dedicación."</p>
