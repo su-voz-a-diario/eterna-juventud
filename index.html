@@ -404,6 +404,16 @@
             line-height: 1.75;
         }
 
+        .tradition {
+            background-color: var(--color-white);
+        }
+        .tradition .section-copy + .section-copy {
+            margin-top: 1rem;
+        }
+        .tradition .product-notes {
+            grid-template-columns: 1fr;
+        }
+
         .formula {
             background-color: #faeef3;
         }
@@ -894,6 +904,37 @@
                         <h3>Tradición cuidada</h3>
                         <p>Una propuesta de origen natural presentada con dedicación, claridad y elegancia.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tradition" aria-labelledby="tradicion-title">
+            <div class="container editorial-grid reverse">
+                <div class="editorial-text reveal">
+                    <p class="section-kicker">Tradición e inspiración</p>
+                    <h2 id="tradicion-title" class="section-title">La sabiduría de la tradición, reinterpretada para hoy</h2>
+                    <p class="section-copy">Antes de la cosmética moderna, el cuidado de la piel se apoyaba en ingredientes naturales, conocimiento transmitido entre generaciones y preparaciones elaboradas con paciencia.</p>
+                    <p class="section-copy">Mucho antes de que existieran los laboratorios cosméticos actuales, el cuidado diario de la piel nacía de la observación, la experiencia y los ingredientes que la naturaleza ofrecía. Durante generaciones, distintas familias prepararon bálsamos, jabones y ungüentos artesanales utilizando materias primas sencillas, seleccionadas por su utilidad y disponibilidad.</p>
+                    <p class="section-copy">Entre esos ingredientes tradicionales se encontraba el sebo de res purificado, apreciado como base para preparaciones destinadas al cuidado cotidiano de la piel. Su composición, rica en lípidos y ácidos grasos, ha despertado nuevamente el interés de algunos fabricantes de cosmética artesanal que buscan recuperar formulaciones inspiradas en prácticas tradicionales, siempre bajo estándares modernos de elaboración.</p>
+                    <p class="section-copy">Hoy sabemos que la tradición y la innovación no tienen por qué estar enfrentadas. Por el contrario, pueden complementarse para dar vida a productos elaborados con atención al detalle, ingredientes cuidadosamente seleccionados y un enfoque honesto del cuidado personal.</p>
+                    <p class="section-copy">En Eterna Juventud creemos que una rutina nocturna no necesita promesas extraordinarias para ser valiosa. Creemos en la constancia, en la calidad de los ingredientes y en el placer de dedicar unos minutos al cuidado de la piel, inspirándonos en conocimientos que han acompañado a distintas generaciones.</p>
+                    <div class="product-notes" aria-label="Principios de tradición e inspiración">
+                        <div class="note">
+                            <strong>Tradición artesanal</strong>
+                            <span>Inspirado en ingredientes y preparaciones utilizadas durante generaciones para el cuidado cotidiano de la piel.</span>
+                        </div>
+                        <div class="note">
+                            <strong>Inspiración natural</strong>
+                            <span>Una formulación que retoma ingredientes tradicionales dentro de una elaboración cosmética contemporánea.</span>
+                        </div>
+                        <div class="note">
+                            <strong>Cuidado consciente</strong>
+                            <span>Una rutina nocturna basada en calidad, constancia y respeto por la piel, sin promesas exageradas.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="editorial-media tall reveal">
+                    <img class="pos-flatlay" src="assets/images/flatlay-producto.webp" alt="Frasco abierto de crema Eterna Juventud con espátula y accesorios sobre una superficie de piedra clara" width="1086" height="1448" loading="lazy">
                 </div>
             </div>
         </section>
